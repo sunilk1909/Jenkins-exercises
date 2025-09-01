@@ -45,7 +45,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USER', passwordVariable: 'PASS')]){
                     sh "docker build -t sunilk1419/jenkins-project:${IMAGE_NAME} ."
                     sh 'echo $PASS | docker login -u $USER --password-stdin'
-                    sh "docker push docker-hub-id/myapp:${IMAGE_NAME}"
+                    sh "docker push sunilk1419/jenkins-project:${IMAGE_NAME}"
                 }
             }
         }
