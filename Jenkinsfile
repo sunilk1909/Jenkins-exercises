@@ -44,7 +44,7 @@ pipeline {
         stage('Build and Push docker image') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'Docker_jenkins', usernameVariable: 'USER', passwordVariable: 'PASS')]){
-                    sh 'docker --version'
+                    
                     sh 'whoami'
                     sh "which docker"
                     sh "docker build -t sunilk1419/jenkins_project:${IMAGE_NAME} ."
