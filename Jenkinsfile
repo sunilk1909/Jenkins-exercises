@@ -35,6 +35,7 @@ pipeline {
                     dir("app") {
                        // install all dependencies needed for running tests
                         sh "npm install"
+                        sh "npm audit fix --force"
                         sh "npm run test"
                     }
                }
@@ -43,7 +44,7 @@ pipeline {
         stage('Build and Push docker image') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'Docker_jenkins', usernameVariable: 'USER', passwordVariable: 'PASS')]){
-                    sh "docker build -t sunilk1419/myapp:${IMAGE_NAME} ."
+                    sh "docker build -t sunilk1419/jenkins_project:${IMAGE_NAME} ."
                     sh 'echo $PASS | docker login -u $USER --password-stdin'
                     sh "docker push sunilk1419/myapp:${IMAGE_NAME}"
 
