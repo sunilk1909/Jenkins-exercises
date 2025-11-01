@@ -6,8 +6,10 @@ pipeline {
 
     stages {
         stage('Increment version') {
-             script {
-                       
+             steps {
+                    script {
+
+
 
 
              /*
@@ -20,9 +22,8 @@ pipeline {
              6. Pull the image, install docker and additional dependecies like npm
              7. Run the server with new image
               */
-
                             }
-
+                   }
         }
 
         stage('Build') {
