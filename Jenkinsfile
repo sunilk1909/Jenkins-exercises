@@ -1,11 +1,11 @@
 pipeline {
     agent any
-       
+
 
     stages {
         stage('Increment version') {
              steps {
-
+                echo "addiontla"
                    }
         }
 
