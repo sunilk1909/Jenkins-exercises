@@ -45,6 +45,8 @@ pipeline {
         stage('Build and Push docker image') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'Docker_jenkins', usernameVariable: 'USER', passwordVariable: 'PASS')]){
+                    sh '/usr/local/bin/docker version'
+
                     sh "docker build -t sunilk1419/jenkins-project:${IMAGE_NAME} ."
                     sh 'echo $PASS | docker login -u $USER --password-stdin'
                     sh "docker push sunilk1419/jenkins-project:${IMAGE_NAME}"
