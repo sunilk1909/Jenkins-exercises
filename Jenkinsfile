@@ -3,7 +3,7 @@ pipeline {
     tools {
         git 'jenkins_project'
         nodejs "node"
-        docker 'docker'
+        
     }
     stages {
         stage('increment version') {
